@@ -61,4 +61,7 @@ class ProductTemplate(models.Model):
         for record in self:
             record.is_learning = record.detailed_type == 'learning'
 
-    
+    def _detailed_type_mapping(self):
+        type_mapping = super()._detailed_type_mapping()
+        type_mapping['learning'] = 'service'
+        return type_mapping
