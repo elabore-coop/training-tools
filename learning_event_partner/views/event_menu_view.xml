@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="Speaker Discipline"
+        id="menu_event_discipline"
+        sequence="1"
+        parent="event.menu_event_configuration"/>
+    <menuitem name="Speaker Stages"
+        id="event_speaker_stage_menu"
+        sequence="2"
+        parent="event.menu_event_configuration"/>
+
+</odoo>

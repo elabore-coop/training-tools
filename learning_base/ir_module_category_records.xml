@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_module_category_formation_r0" model="ir.module.category">
+      <field name="name">Formation</field>
+    </record>
+  </data>
+</openerp>

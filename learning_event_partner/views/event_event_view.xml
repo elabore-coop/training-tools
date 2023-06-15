@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        
+        <record id="view_event_form_inherit_learning_event_partner" model="ir.ui.view">
+            <field name="name">event.event.view.form.inherit</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(learning_event_partner.act_speakers_from_event)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-users"
+                            help="Speaker for this event">
+                        <field name="nb_speakers" widget="statinfo" string="Speakers"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

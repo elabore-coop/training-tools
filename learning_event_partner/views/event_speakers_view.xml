@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="act_speakers_from_event" model="ir.actions.act_window">
+            <field name="res_model">event.speaker</field>
+            <field name="name">Speakers</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('event_id', '=', active_id)]</field>
+            <field name="context">{'default_event_id': active_id}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Speakers Yet !
+                </p><p>
+                    Add new speakers to this event
+                </p>
+            </field>
+        </record>
+
+        <record id="event_speaker_view_search" model="ir.ui.view">
+            <field name="name">event.speaker.view.search</field>
+            <field name="model">event.speaker</field>
+            <field name="arch" type="xml">
+                <search string="Search Speakers">
+                    <field name="name" string="Employee" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="discipline_id"/>
+                    <field name="has_extra"/>
+                    <separator/>
+                    <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction', '=', True)]"/>
+                    <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue" domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today" domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all" domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_discipline" string="Discipline" domain="[]" context="{'group_by': 'discipline_id'}"/>
+                        <filter name="group_employee" string="Speaker" domain="[]" context="{'group_by': 'employee_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="discipline_id" icon="fa-address-card " enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="event_speaker_view_kanban" model="ir.ui.view">
+            <field name="name">event.speaker.kanban</field>
+            <field name="model">event.speaker</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_event_attendee_kanban_view" default_group_by="stage_id"  default_order="name, create_date desc" sample="1">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="stage_id"/>
+                    <field name="has_extra" />
+                    <field name="discipline_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_event_registration_kanban container-fluid p-0">
+                                <div class="row h-100">
+                                    <div class="col-9 pr-0">
+                                        <div class="oe_kanban_content h-100">
+                                            <div class="o_kanban_record_body pt-1 pl-2 h-100 d-flex flex-column">
+                                                <b class="o_kanban_record_title"><field name="name"/></b>
+                                                <field name="event_id" invisible="context.get('default_event_id')" />
+                                                <span attrs="{'invisible': [('employee_id', '=', False)]}">By <field name="employee_id" /></span>
+                                                <div id="discipline_id" class="o_field_many2manytags o_field_widget d-flex mt-auto">
+                                                    <t t-if="record.discipline_id.raw_value">
+                                                        <div t-attf-class="badge badge-pill o_tag_color_#{(record.discipline_id.raw_value % 11) + 1}" >
+                                                            <b><span class="o_badge_text"><t t-esc="record.discipline_id.value"/></span></b>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="event_speaker_view_tree" model="ir.ui.view">
+            <field name="name">event.speaker.view.tree</field>
+            <field name="model">event.speaker</field>
+            <field name="arch" type="xml">
+                <tree string="Speakers" editable="bottom">
+                    <field name="name" invisible="0"/>
+                    <field name="employee_id" />
+                    <field name="discipline_id" /> 
+                    <field name="event_id" invisible="1" />
+                    <field name="has_extra"/>
+                    <field name="working_hours" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record id="event_speaker_view_form" model="ir.ui.view">
+            <field name="name">event.speaker.view.form</field>
+            <field name="model">event.speaker</field>
+            <field name="arch" type="xml">
+                <form string="Speaker">
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <group>
+                                <field name="employee_id" required="1"/>
+                                <field name="discipline_id" />
+                                <field name="has_extra"/>
+                                <field name="working_hours" widget="float_time"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_event_discipline">
+            <field name="name">Speaker Discipline</field>
+            <field name="res_model">event.discipline</field>
+        </record>
+
+        <record id="menu_event_discipline" model="ir.ui.menu">
+            <field name="action" ref="learning_event_partner.action_event_discipline"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_event_speaker_stage">
+            <field name="name">Speaker Stage</field>
+            <field name="res_model">event.speaker.stage</field>
+        </record>
+
+        <record id="event_speaker_stage_menu" model="ir.ui.menu">
+            <field name="action" ref="learning_event_partner.action_event_speaker_stage"/>
+        </record>
+    </data>
+</odoo>

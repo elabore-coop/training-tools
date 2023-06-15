@@ -1,0 +1,368 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* learning_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-24 15:30+0000\n"
+"PO-Revision-Date: 2020-04-24 17:36+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "All Categories"
+msgstr "Toutes les catégories"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "All Countries"
+msgstr "Tous les pays"
+
+#. module: learning_base
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_domaine_r0
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__certificate
+#: model:ir.model.fields,field_description:learning_base.field_product_template__certificate
+msgid "Certificate"
+msgstr "Certification"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__child_id
+msgid "Child Domain"
+msgstr "Domain enfant"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__code
+msgid "Code"
+msgstr "Code"
+
+#. module: learning_base
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_configuration_r0
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: learning_base
+#: model:ir.model,name:learning_base.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__content
+#: model:ir.model.fields,field_description:learning_base.field_product_template__content
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Content"
+msgstr "Contenu"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: learning_base
+#: model_terms:ir.actions.act_window,help:learning_base.ir_actions_act_window_formation_r0
+msgid "Créer un nouveau article"
+msgstr "Créer un nouveau article"
+
+#. module: learning_base
+#: model_terms:ir.actions.act_window,help:learning_base.ir_actions_act_window_session_r0
+msgid "Créer un nouveau document"
+msgstr "Créer un nouveau document"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__description
+#: model:ir.model.fields,field_description:learning_base.field_product_template__description
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Description"
+msgstr "Description"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__display_name
+msgid "Display Name"
+msgstr "Afficher Nom"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__domain_id
+#: model:ir.model.fields,field_description:learning_base.field_product_template__domain_id
+msgid "Domain"
+msgstr "Domaine"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__parent_domain_id
+#: model:ir.model.fields,field_description:learning_base.field_product_template__parent_domain_id
+msgid "Domain parent"
+msgstr "Domaine Parent"
+
+#. module: learning_base
+#: model:ir.actions.act_window,name:learning_base.ir_actions_act_window_domaine_r0
+msgid "Domaine"
+msgstr "Domaine"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_event_event__duration_hour
+#: model:ir.model.fields,field_description:learning_base.field_product_product__duration_hour
+#: model:ir.model.fields,field_description:learning_base.field_product_template__duration_hour
+msgid "Duration in hour(s)"
+msgstr "Durée en heure(s)"
+
+#. module: learning_base
+#: model:ir.model,name:learning_base.model_event_event
+msgid "Event"
+msgstr "Événement"
+
+#. module: learning_base
+#: model:ir.model,name:learning_base.model_event_registration
+msgid "Event Registration"
+msgstr "Inscription à l'événement"
+
+#. module: learning_base
+#: model:ir.actions.act_window,name:learning_base.ir_actions_act_window_formation_r0
+#: model:ir.module.category,name:learning_base.ir_module_category_formation_r0
+msgid "Formation"
+msgstr "Formation"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__goal
+#: model:ir.model.fields,field_description:learning_base.field_product_template__goal
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Goal"
+msgstr "Objectif(s)"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__id
+msgid "ID"
+msgstr "ID"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_res_partner__is_student
+#: model:ir.model.fields,field_description:learning_base.field_res_users__is_student
+msgid "Is student ?"
+msgstr "Etudiant"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_res_partner__is_trainer
+#: model:ir.model.fields,field_description:learning_base.field_res_users__is_trainer
+msgid "Is trainer ?"
+msgstr "Formateur"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_event_event__learning_id
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_formation_r0
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_formation_r1
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_inscriptions_r0
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Learning"
+msgstr "Formation"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.group_learning_administration
+msgid "Learning Administrator"
+msgstr "Administrateur des formations"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.group_learning_backoffice
+msgid "Learning Backoffice"
+msgstr "Utilisateur des formations"
+
+#. module: learning_base
+#: model:ir.module.category,name:learning_base.module_category_learning
+msgid "Learning Management"
+msgstr "Gestion des formations"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.group_learning_student
+msgid "Learning Student"
+msgstr "Apprenant"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.group_learning_teacher
+msgid "Learning Teacher"
+msgstr "Formateur"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.group_learning_trainer
+msgid "Learning Trainer"
+msgstr "Formateur"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__methodology
+#: model:ir.model.fields,field_description:learning_base.field_product_template__methodology
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Methodology"
+msgstr "Méthodologie"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__count_session
+#: model:ir.model.fields,field_description:learning_base.field_product_template__count_session
+msgid "Nb session"
+msgstr "Nb Session(s)"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Next Events"
+msgstr "Prochains événements"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Next Week"
+msgstr "Semaine suivante"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Next month"
+msgstr "Mois suivant"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Old Events"
+msgstr "Anciens événements"
+
+#. module: learning_base
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Our value"
+msgstr "Nos « plus »"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__parent_id
+msgid "Parent Domain"
+msgstr "Domaine parent"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_learning_domain__parent_path
+msgid "Parent Path"
+msgstr "Chemin parent"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Past Events"
+msgstr "Événements passés"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__prerequisite
+#: model:ir.model.fields,field_description:learning_base.field_product_template__prerequisite
+msgid "Prerequisite"
+msgstr "Les Pré-requis"
+
+#. module: learning_base
+#: model:ir.model,name:learning_base.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__public
+#: model:ir.model.fields,field_description:learning_base.field_product_template__public
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Public"
+msgstr "Publique"
+
+#. module: learning_base
+#: model:ir.actions.act_window,name:learning_base.ir_actions_act_window_session_r0
+#: model:ir.ui.menu,name:learning_base.ir_ui_menu_session_r0
+msgid "Session"
+msgstr "Session"
+
+#. module: learning_base
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Sessions"
+msgstr "Sessions"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "This Week"
+msgstr "Cette semaine"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "This month"
+msgstr "Ce mois"
+
+#. module: learning_base
+#: code:addons/learning_base/controler/main.py:0
+#, python-format
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: learning_base
+#: model:res.groups,name:learning_base.res_groups_utilisateur_r0
+msgid "Utilisateur"
+msgstr "Utilisateur"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__validate
+#: model:ir.model.fields,field_description:learning_base.field_product_template__validate
+msgid "Validate"
+msgstr "Valider"
+
+#. module: learning_base
+#: model_terms:ir.ui.view,arch_db:learning_base.learning_base_product_template_form
+msgid "Validation"
+msgstr "Validation"
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_product_product__our_value
+#: model:ir.model.fields,field_description:learning_base.field_product_template__our_value
+msgid "Value"
+msgstr "Valeur"
+
+#. module: learning_base
+#: code:addons/learning_base/models/learning_domain.py:0
+#, python-format
+msgid "You cannot create recursive domain."
+msgstr "Impossible de créer un domaine récursif."
+
+#. module: learning_base
+#: model:ir.model.fields,field_description:learning_base.field_event_registration__is_learning
+#: model:ir.model.fields,field_description:learning_base.field_product_product__is_learning
+#: model:ir.model.fields,field_description:learning_base.field_product_template__is_learning
+msgid "is learning"
+msgstr "Est une formation"
+
+#. module: learning_base
+#: model:ir.model,name:learning_base.model_learning_domain
+msgid "learning.domain"
+msgstr "learning.domain"

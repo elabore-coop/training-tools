@@ -1,0 +1,465 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* learning_event_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-29 18:16+0000\n"
+"PO-Revision-Date: 2021-11-29 19:23+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_needaction
+msgid "Action Needed"
+msgstr "Action necessaire"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_state
+msgid "Activity State"
+msgstr "Status de l'activité"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icon Type d'activité"
+
+#. module: learning_event_partner
+#: model_terms:ir.actions.act_window,help:learning_event_partner.act_speakers_from_event
+msgid "Add new speakers to this event"
+msgstr "Ajouter un nouvel intervenant pour cet évènement"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_attachment_count
+msgid "Attachment Count"
+msgstr "Pièce jointes"
+
+#. module: learning_event_partner
+#: code:addons/learning_event_partner/models/event_speaker_stage.py:0
+#, python-format
+msgid "Blocked"
+msgstr "Blocké"
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_kanban
+msgid "By"
+msgstr "Par"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__create_uid
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__create_uid
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__create_date
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__create_date
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: learning_event_partner
+#: model:ir.model,name:learning_event_partner.model_event_discipline
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__discipline_id
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Discipline"
+msgstr "Discipline"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__display_name
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_event__display_name
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__display_name
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Employee"
+msgstr "Employé"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__pipe_end
+msgid "End Stage"
+msgstr "Stage final"
+
+#. module: learning_event_partner
+#: model:ir.model,name:learning_event_partner.model_event_event
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__event_id
+msgid "Event"
+msgstr "Événement"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker_stage__pipe_end
+msgid ""
+"Events will automatically be moved into this stage when they are finished. "
+"The event moved into this stage will automatically be set as green."
+msgstr ""
+"L'intervenant passera automatiquement à ce status quant le traitement sera "
+"terminé."
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__extra_price
+msgid "Extra Price"
+msgstr "Montant Supplément"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__fold
+msgid "Folded in Kanban"
+msgstr "Replié en vue Kanban"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Future Activities"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__legend_done
+msgid "Green Kanban Label"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__legend_normal
+msgid "Grey Kanban Label"
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__has_extra
+msgid "Has Extra ?"
+msgstr "Souhait un supplément ?"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__id
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_event__id
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__id
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__id
+msgid "ID"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_needaction
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: learning_event_partner
+#: code:addons/learning_event_partner/models/event_speaker_stage.py:0
+#, python-format
+msgid "In Progress"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline____last_update
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_event____last_update
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker____last_update
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__write_uid
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__write_uid
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__write_date
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__write_date
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Late Activities"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_discipline__name
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.actions.act_window,help:learning_event_partner.act_speakers_from_event
+msgid "No Speakers Yet !"
+msgstr "Aucun intervenant pour le moment !"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_event__nb_speakers
+msgid "Number of speaker"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker_stage__legend_blocked
+msgid ""
+"Override the default value displayed for the blocked state for kanban "
+"selection."
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker_stage__legend_done
+msgid ""
+"Override the default value displayed for the done state for kanban "
+"selection."
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker_stage__legend_normal
+msgid ""
+"Override the default value displayed for the normal state for kanban "
+"selection."
+msgstr ""
+
+#. module: learning_event_partner
+#: code:addons/learning_event_partner/models/event_speaker_stage.py:0
+#, python-format
+msgid "Ready for Next Stage"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__legend_blocked
+msgid "Red Kanban Label"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Search Speakers"
+msgstr "Rechercher dans les intervenants"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__employee_id
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_form
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Speaker"
+msgstr "Intervenant"
+
+#. module: learning_event_partner
+#: model:ir.actions.act_window,name:learning_event_partner.action_event_discipline
+#: model:ir.ui.menu,name:learning_event_partner.menu_event_discipline
+msgid "Speaker Discipline"
+msgstr "Discipline de l'intervanant"
+
+#. module: learning_event_partner
+#: model:ir.actions.act_window,name:learning_event_partner.action_event_speaker_stage
+#: model:ir.model,name:learning_event_partner.model_event_speaker_stage
+msgid "Speaker Stage"
+msgstr "Status de l'intervenant"
+
+#. module: learning_event_partner
+#: model:ir.ui.menu,name:learning_event_partner.event_speaker_stage_menu
+msgid "Speaker Stages"
+msgstr "Status des intervenants"
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.view_event_form_inherit_learning_event_partner
+msgid "Speaker for this event"
+msgstr "Intervenant pour cet évènement."
+
+#. module: learning_event_partner
+#: model:ir.actions.act_window,name:learning_event_partner.act_speakers_from_event
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_event__speaker_ids
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_tree
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.view_event_form_inherit_learning_event_partner
+msgid "Speakers"
+msgstr "Intervenants"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__stage_id
+msgid "Stage"
+msgstr "Status"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__name
+msgid "Stage Name"
+msgstr "Nom du status"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker_stage__description
+msgid "Stage description"
+msgstr "Description du status"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__standard_price
+msgid "Standard Price"
+msgstr "Prix"
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: learning_event_partner
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Today Activities"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_unread
+#: model_terms:ir.ui.view,arch_db:learning_event_partner.event_speaker_view_search
+msgid "Unread Messages"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,field_description:learning_event_partner.field_event_speaker__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model.fields,help:learning_event_partner.field_event_speaker__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: learning_event_partner
+#: model:ir.model,name:learning_event_partner.model_event_speaker
+msgid "event.speaker"
+msgstr "event.speaker"

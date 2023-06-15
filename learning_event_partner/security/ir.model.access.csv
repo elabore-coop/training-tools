@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_speaker_user,event.event.speaker.user,learning_event_partner.model_event_speaker,event.group_event_user,1,0,0,0
+access_event_speaker_manager,event.event.speaker.manager,learning_event_partner.model_event_speaker,event.group_event_manager,1,1,1,1
+access_event_discipline_user,event.event.discipline.user,learning_event_partner.model_event_discipline,event.group_event_user,1,0,0,0
+access_event_discipline_manager,event.event.discipline.manager,learning_event_partner.model_event_discipline,event.group_event_manager,1,1,1,1
+access_event_speaker_stage_user,event.event.speaker.stage.user,learning_event_partner.model_event_speaker_stage,event.group_event_user,1,0,0,0
+access_event_speaker_stage_manager,event.event.speaker.stage.manager,learning_event_partner.model_event_speaker_stage,event.group_event_manager,1,1,1,1
