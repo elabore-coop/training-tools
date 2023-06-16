@@ -17,11 +17,7 @@ class learningFinancialProgram(models.Model):
 class ProductTemplate(models.Model):
     _inherit = ['product.template']
 
-    is_learning = fields.Boolean(compute='_compute_is_learning', store=True)
-    detailed_type = fields.Selection(selection_add=[
-        ('learning', 'Training'),
-    ], ondelete={'learning': 'set service'})
-    
+    is_learning = fields.Boolean(string='is learning')
     
     goal = fields.Html(string='Goal', translate=True)
     duration_html = fields.Html(string='Duration', translate=True)
@@ -55,11 +51,6 @@ class ProductTemplate(models.Model):
     def _compute_session(self):
         for record in self:
             record.count_session = len(self.env['event.event'].search([('learning_id', '=', record.id)]))
-
-    @api.depends('detailed_type')
-    def _compute_is_learning(self):
-        for record in self:
-            record.is_learning = record.detailed_type == 'learning'
 
     def _detailed_type_mapping(self):
         type_mapping = super()._detailed_type_mapping()

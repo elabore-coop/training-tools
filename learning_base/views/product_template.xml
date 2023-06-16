@@ -3,98 +3,103 @@
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-    <record id="learning_base_product_template_form" model="ir.ui.view">
-        <field name="name">product.template.learning.form.inherit</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
-        <field name="arch" type="xml">
- 
-            <div name="button_box" position="inside">
-                <button name="%(ir_actions_act_window_session_r0)d"
-                            type="action"
-                            class="oe_stat_button"
-                            icon="fa-pencil-square-o"
-                            context="{'search_default_learning_id': active_id, 'default_name': name, 'default_learning_id': active_id}">
-                            <field name="count_session" widget="statinfo" string="Sessions"/>
-                </button>
-            </div>
+  <record id="learning_base_product_template_form" model="ir.ui.view">
+    <field name="name">product.template.learning.form.inherit</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view" />
+    <field name="arch" type="xml">
 
-            <page name="sales" position="after">
-              <page string="Learning" attrs="{'invisible':[('detailed_type','!=','learning')]}" name="Learning">
-                <group name="Informations">
-                  <group>
-                    <field name="domain_id"/>
-		              </group>
-                </group>
-                <group name="Duration">
-                  <group>
-                    <field name="duration_days"/>
-                    <field name="hours_per_day"/>
-                    <field name="duration_hour"/>
-                  </group>
-                  <group>
-                    <field name="duration_text" placeholder="Specific duration details" nolabel="1"/>
-                  </group>
-                </group>
-                <group name="Financial Programs">
-                  <field name="financial_program_ids" widget="many2many_tags"/>
-                </group>
+      <div name="button_box" position="inside">
+        <button name="%(ir_actions_act_window_session_r0)d"
+          type="action"
+          class="oe_stat_button"
+          icon="fa-pencil-square-o"
+          context="{'search_default_learning_id': active_id, 'default_name': name, 'default_learning_id': active_id}">
+          <field name="count_session" widget="statinfo" string="Sessions" />
+        </button>
+      </div>
 
-		        <div name="learning_data">
-                    <separator string="Goal"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+      <field name="detailed_type" position="after">
+        <field name="is_learning" />
+      </field>
+
+      <page name="sales" position="after">
+        <page string="Learning" attrs="{'invisible':[('is_learning','=', False)]}"
+          name="Learning">
+          <group name="Informations">
+            <group>
+              <field name="domain_id" />
+            </group>
+          </group>
+          <group name="Duration">
+            <group>
+              <field name="duration_days" />
+              <field name="hours_per_day" />
+              <field name="duration_hour" />
+            </group>
+            <group>
+              <field name="duration_text" placeholder="Specific duration details" nolabel="1" />
+            </group>
+          </group>
+          <group name="Financial Programs">
+            <field name="financial_program_ids" widget="many2many_tags" />
+          </group>
+
+          <div name="learning_data">
+            <separator string="Goal" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="goal" readonly="1"/>
-                    <separator string="Duration Details"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="goal" readonly="1" />
+            <separator string="Duration Details" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
 
-                    <field name="duration_html" readonly="1"/>
-                    <separator string="Public"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="duration_html" readonly="1" />
+            <separator string="Public" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="public" readonly="1"/>
-                    <separator string="Prerequisite"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="public" readonly="1" />
+            <separator string="Prerequisite" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="prerequisite" readonly="1"/>
-                    <separator string="Content"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="prerequisite" readonly="1" />
+            <separator string="Content" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="content" readonly="1"/>
-                    <separator string="Organizer"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="content" readonly="1" />
+            <separator string="Organizer" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="organizer" readonly="1"/>
-                    <separator string="Methodology"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="organizer" readonly="1" />
+            <separator string="Methodology" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="methodology" readonly="1"/>
-                    <separator string="Technical"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="methodology" readonly="1" />
+            <separator string="Technical" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="technic" readonly="1"/>
-                    <separator string="Price details"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="technic" readonly="1" />
+            <separator string="Price details" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="price_html" readonly="1"/>
-                    <separator string="Registration"/>
-                    <div class="alert alert-info" role="alert">
-  To edit content, please go to the website page directly.
+            <field name="price_html" readonly="1" />
+            <separator string="Registration" />
+            <div class="alert alert-info" role="alert">
+              To edit content, please go to the website page directly.
 </div>
-                    <field name="registration" readonly="1"/>
-                </div>
-              </page>
-            </page>
-        </field>
-    </record>
+            <field name="registration" readonly="1" />
+          </div>
+        </page>
+      </page>
+    </field>
+  </record>
 </odoo>

@@ -24,7 +24,6 @@
         'security/ir.model.access.csv',
         'ir_actions_act_window_records.xml',
         'ir_ui_menu_records.xml',
-        'ir_module_category_records.xml',
         'views/product_template.xml',
         'views/event_event.xml',
         'views/res_company.xml',
