@@ -17,7 +17,7 @@ class learningFinancialProgram(models.Model):
 class ProductTemplate(models.Model):
     _inherit = ['product.template']
 
-    is_learning = fields.Boolean(compute='_compute_is_learning')
+    is_learning = fields.Boolean(compute='_compute_is_learning', store=True)
     detailed_type = fields.Selection(selection_add=[
         ('learning', 'Training'),
     ], ondelete={'learning': 'set service'})
