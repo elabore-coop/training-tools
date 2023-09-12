@@ -1,0 +1,43 @@
+<odoo>
+    <template id="question_container" name="survey_event_registration_generation question container" inherit_id="survey.question_container">
+        <xpath expr="//div[@role='alert']" position="before">
+            <t t-if="question.question_type == 'event_product'"><t t-call="survey_event_registration_generation.question_event_product" /></t>
+            <t t-if="question.question_type == 'event'"><t t-call="survey_event_registration_generation.question_event" /></t>
+        </xpath>       
+    </template>
+
+    <template id="survey_page_print" name="survey_event_registration_generation print page" inherit_id="survey.survey_page_print">
+        <xpath expr="//div[@role='alert']" position="before">
+            <t t-if="question.question_type == 'event_product'"><t t-call="survey_event_registration_generation.question_event_product"/></t>
+            <t t-if="question.question_type == 'event'"><t t-call="survey_event_registration_generation.question_event" /></t>
+        </xpath>
+    </template>
+
+    <template id="question_event_product" name="Question: event product">
+        <div class="o_survey_comment_container p-0">
+            <select t-att-name="question.id" t-att-placeholder="question.question_placeholder" t-att-data-question-type="question.question_type">
+                <t t-foreach="event_products" t-as="event_product">        
+                    <option 
+                        t-att-value="event_product.id"
+                        t-att-selected="answer_lines and (answer_lines[0].value_event_product.id == event_product.id)">
+                        <t t-esc="event_product.name"/></option>
+                </t> 
+            </select> 
+        </div>       
+    </template>
+
+    <template id="question_event" name="Question: event">
+        <div class="o_survey_comment_container p-0">
+            <select t-att-name="question.id" t-att-placeholder="question.question_placeholder" t-att-data-question-type="question.question_type">
+                <t t-foreach="events" t-as="event">        
+                    <option 
+                        t-att-value="event.id"
+                        t-att-selected="answer_lines and (answer_lines[0].value_event.id == event.id)">
+                        <t t-esc="event.name"/></option>
+                </t> 
+            </select> 
+        </div>       
+    </template>
+
+
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Inherit Form View -->
+    <record id="survey_event_registration_generation_inherit_survey_user_input_line_form"
+            model="ir.ui.view">
+        <field name="name">user.input.value.event.product</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="inherit_id" ref="survey.survey_user_input_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='answer_type']" position="after">
+                <field name="value_event"/>
+                <field name="value_event_product" />
+            </xpath>
+        </field>
+    </record>
+
+    
+</odoo>
