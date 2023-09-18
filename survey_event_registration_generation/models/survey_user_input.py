@@ -121,9 +121,28 @@ class SurveyUserInput(models.Model):
             lambda r: r.survey_id.generate_registration and not self.registration_id
         ):
             vals = user_input._prepare_registration()
-            
-            registration = self.env["event.registration"].create(vals)
-            self._create_registration_post_process(registration)
+
+            # check doublon : if old draft registration already exists : update it
+            email = vals.get('email')
+            event_id = vals.get('event_id')
+            old_registration = False
+            if email and event_id:
+                old_registration = self.env["event.registration"].search([('email','=',email),('event_id','=',event_id)])
+                if old_registration:
+                    old_registration = old_registration[0]
+                    if old_registration.state == 'draft':
+                        registration = old_registration
+                        registration.write(vals)
+                        registration.message_post_with_view(
+                            "mail.message_origin_link",
+                            values={"edit":True, "self": registration, "origin": self.survey_id},
+                            subtype_id=self.env.ref("mail.mt_note").id,
+                        )
+
+            if not old_registration:
+                registration = self.env["event.registration"].create(vals)
+                self._create_registration_post_process(registration)
+                
             self.update({"registration_id": registration.id})
         res = super()._mark_done()
 
