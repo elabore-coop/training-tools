@@ -7,7 +7,7 @@ from odoo.http import request
 class Survey(main.Survey):
     def _prepare_survey_data(self, survey_sudo, answer_sudo, **post):
         result = super(Survey, self)._prepare_survey_data(survey_sudo, answer_sudo, **post)
-        result['event_products'] = request.env['product.product'].search([('detailed_type','=','event')])
+        result['event_products'] = request.env['product.product'].sudo().search([('detailed_type','=','event')])
 
         next_event_question = self._get_next_event_question(answer_sudo)
         if next_event_question:
@@ -15,10 +15,10 @@ class Survey(main.Survey):
             if next_event_question.event_product_question_id:
                 event_product = self._get_answer_event_product(next_event_question.event_product_question_id, answer_sudo)
             if event_product:
-                event_tickets = request.env['event.event.ticket'].search([('product_id','=',event_product.id)])                
+                event_tickets = request.env['event.event.ticket'].sudo().search([('product_id','=',event_product.id)])                
                 result['events'] = event_tickets.event_id
             else:
-                result['events'] = request.env['event.event'].search([])
+                result['events'] = request.env['event.event'].sudo().search([])
 
         return result
 

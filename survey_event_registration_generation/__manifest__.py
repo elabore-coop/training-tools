@@ -12,7 +12,9 @@
     "depends": ["survey"],
     "data": [
         'views/survey_question_views.xml', 
-        'views/survey_templates.xml'
+        'views/survey_survey_views.xml',
+        'views/survey_templates.xml', 
+        #'security/ir.model.access.csv',
     ],
     'assets': {
         'survey.survey_assets': [
