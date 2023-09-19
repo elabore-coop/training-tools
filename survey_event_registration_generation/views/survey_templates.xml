@@ -7,9 +7,9 @@
     </template>
 
     <template id="survey_page_print" name="survey_event_registration_generation print page" inherit_id="survey.survey_page_print">
-        <xpath expr="//div[@role='alert']" position="before">
-            <t t-if="question.question_type == 'event_product'"><t t-call="survey_event_registration_generation.question_event_product"/></t>
-            <t t-if="question.question_type == 'event'"><t t-call="survey_event_registration_generation.question_event" /></t>
+        <xpath expr="//div[@role='alert']" position="before">            
+            <t t-if="question.question_type == 'event_product'"><t t-out="answer_lines[0].value_event_product.display_name"/></t>
+            <t t-if="question.question_type == 'event'"><t t-out="answer_lines[0].value_event.display_name"/></t>
         </xpath>
     </template>
 

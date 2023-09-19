@@ -111,7 +111,7 @@ class SurveyUserInput(models.Model):
         """After creating the lead send an internal message with the input link"""
         registration.message_post_with_view(
             "mail.message_origin_link",
-            values={"self": registration, "origin": self.survey_id},
+            values={"self": registration, "origin": self},
             subtype_id=self.env.ref("mail.mt_note").id,
         )
 
@@ -135,7 +135,7 @@ class SurveyUserInput(models.Model):
                         registration.write(vals)
                         registration.message_post_with_view(
                             "mail.message_origin_link",
-                            values={"edit":True, "self": registration, "origin": self.survey_id},
+                            values={"edit":True, "self": registration, "origin": user_input},
                             subtype_id=self.env.ref("mail.mt_note").id,
                         )
 
