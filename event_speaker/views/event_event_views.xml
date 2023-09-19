@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_form_event_speaker">
+        <field name="name">event.event.form.event.speaker</field>
+        <field name="model">event.event</field>        
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Speakers">
+                    <field name="speakers" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
