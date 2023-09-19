@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+  
+        <template id="message_event_speaker_assigned">
+            <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                <a href="#" t-att-data-oe-model="speaker._name" t-att-data-oe-id="speaker.id">
+                    <t t-esc="speaker.name" /> 
+                </a>
+                has been assigned as speaker to 
+                <a href="#" t-att-data-oe-model="event._name" t-att-data-oe-id="event.id">
+                    <t t-esc="event.display_name" /> 
+                </a>
+                from survey answers 
+                <a href="#" t-att-data-oe-model="user_input._name" t-att-data-oe-id="user_input.id">
+                    <t t-esc="user_input.display_name" /> 
+                </a>
+            </div>
+        </template>
+      
+    </data>
+</odoo>
