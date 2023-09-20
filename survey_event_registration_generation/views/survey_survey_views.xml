@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="survey.survey_survey_view_form" />
         <field name="arch" type="xml">
             <group name="options" position="inside">
-                <group name="event_options" string="Event">
+                <group name="event_registration_options" string="Events registrations">
                     <field name="generate_registration" />
                 </group>
             </group>
