@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ir_model_fields_survey_user,ir.model.fields.survey.user,base.model_ir_model_fields,survey.group_survey_user,1,0,0,0
