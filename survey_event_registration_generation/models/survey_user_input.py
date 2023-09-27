@@ -40,7 +40,10 @@ class SurveyUserInput(models.Model):
             Save event product to user_input.line
         """
         vals = self._get_line_answer_values(question, answer, question.question_type)
-        vals['value_event_product'] = int(vals['value_event_product'])
+        if 'value_event_product' in vals and vals['value_event_product'].isnumeric():
+            vals['value_event_product'] = int(vals['value_event_product'])
+        else:
+            vals['value_event_product'] = 0
         if old_answers:
             old_answers.write(vals)
             return old_answers
@@ -52,7 +55,10 @@ class SurveyUserInput(models.Model):
             Save event to user_input.line
         """
         vals = self._get_line_answer_values(question, answer, question.question_type)
-        vals['value_event'] = int(vals['value_event'])
+        if 'value_event' in vals and vals['value_event'].isnumeric():
+            vals['value_event'] = int(vals['value_event'])
+        else:
+            vals['value_event'] = 0
         if old_answers:
             old_answers.write(vals)
             return old_answers

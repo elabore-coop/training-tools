@@ -3,8 +3,17 @@
 
 from odoo.addons.survey.controllers import main
 from odoo.http import request
+from odoo import http
 
 class Survey(main.Survey):
+
+    @http.route(['/survey_event/get_events_from_product'], type='json', auth="public", methods=['POST'])
+    def get_events_from_product(self, product_id, **kw):        
+        tickets = request.env['event.event.ticket'].sudo().search([('product_id','=',product_id)])
+        events = set([ticket.event_id for ticket in tickets])         
+        return [{'id':event.id,'name':event.name} for event in events]
+
+
     def _prepare_survey_data(self, survey_sudo, answer_sudo, **post):
         result = super(Survey, self)._prepare_survey_data(survey_sudo, answer_sudo, **post)
         result['event_products'] = request.env['product.product'].sudo().search([('detailed_type','=','event')])

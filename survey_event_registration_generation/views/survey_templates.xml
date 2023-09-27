@@ -15,8 +15,12 @@
 
     <template id="question_event_product" name="Question: event product">
         <div class="o_survey_comment_container p-0">
-            <select t-att-name="question.id" t-att-placeholder="question.question_placeholder" t-att-data-question-type="question.question_type">
-                <t t-foreach="event_products" t-as="event_product">        
+            <select class="o_survey_form_choice_item"
+                t-att-name="question.id" 
+                t-att-placeholder="question.question_placeholder" 
+                t-att-data-question-type="question.question_type">
+                <option>Please select...</option>
+                <t t-foreach="event_products" t-as="event_product">
                     <option 
                         t-att-value="event_product.id"
                         t-att-selected="answer_lines and (answer_lines[0].value_event_product.id == event_product.id)">
@@ -28,8 +32,12 @@
 
     <template id="question_event" name="Question: event">
         <div class="o_survey_comment_container p-0">
-            <select t-att-name="question.id" t-att-placeholder="question.question_placeholder" t-att-data-question-type="question.question_type">
-                <t t-foreach="events" t-as="event">        
+            <select class="o_survey_form_choice_item"
+                t-att-name="question.id" 
+                t-att-placeholder="question.question_placeholder" 
+                t-att-data-question-type="question.question_type">
+                <option>Please select...</option>
+                <t t-foreach="events" t-as="event">
                     <option 
                         t-att-value="event.id"
                         t-att-selected="answer_lines and (answer_lines[0].value_event.id == event.id)">
