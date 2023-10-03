@@ -14,6 +14,7 @@
         'views/survey_question_views.xml', 
         'views/survey_survey_views.xml',
         'views/survey_templates.xml', 
+        'views/event_stage_views.xml',         
         'security/ir.model.access.csv',
     ],
     'assets': {

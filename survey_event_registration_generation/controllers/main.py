@@ -9,25 +9,22 @@ class Survey(main.Survey):
 
     @http.route(['/survey_event/get_events_from_product'], type='json', auth="public", methods=['POST'])
     def get_events_from_product(self, product_id, **kw):        
-        tickets = request.env['event.event.ticket'].sudo().search([('product_id','=',product_id)])
-        events = set([ticket.event_id for ticket in tickets])         
+        if not product_id:
+            return []
+        events = request.env['event.event'].sudo().get_events_visible_in_survey(product_id)
         return [{'id':event.id,'name':event.name} for event in events]
 
 
     def _prepare_survey_data(self, survey_sudo, answer_sudo, **post):
         result = super(Survey, self)._prepare_survey_data(survey_sudo, answer_sudo, **post)
-        result['event_products'] = request.env['product.product'].sudo().search([('detailed_type','=','event')])
+        result['event_products'] = request.env['product.product'].sudo().get_event_products_visible_in_survey()
 
         next_event_question = self._get_next_event_question(answer_sudo)
         if next_event_question:
-            event_product = None
+            event_product_id = None
             if next_event_question.event_product_question_id:
-                event_product = self._get_answer_event_product(next_event_question.event_product_question_id, answer_sudo)
-            if event_product:
-                event_tickets = request.env['event.event.ticket'].sudo().search([('product_id','=',event_product.id)])                
-                result['events'] = event_tickets.event_id
-            else:
-                result['events'] = request.env['event.event'].sudo().search([])
+                event_product_id = self._get_answer_event_product(next_event_question.event_product_question_id, answer_sudo).id
+            result['events'] = request.env['event.event'].sudo().get_events_visible_in_survey(event_product_id)
 
         return result
 

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="event_stage_view_form_survey_event_registration_generation" model="ir.ui.view">
+            <field name="name">event.stage.view.form.survey.event.registration.generation</field>
+            <field name="model">event.stage</field>
+            <field name="inherit_id" ref="event.event_stage_view_form" />
+            <field name="arch" type="xml">
+                <field name="pipe_end" position="after">
+                    <field name="visible_in_survey" />
+                </field>
+            </field>
+        </record>
+
+        <record id="event_stage_view_tree_survey_event_registration_generation" model="ir.ui.view">
+            <field name="name">event.stage.view.tree.survey.event.registration.generation</field>
+            <field name="model">event.stage</field>
+            <field name="inherit_id" ref="event.event_stage_view_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="visible_in_survey" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

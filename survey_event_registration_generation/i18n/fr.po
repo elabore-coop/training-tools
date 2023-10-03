@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-20 07:01+0000\n"
-"PO-Revision-Date: 2023-09-20 07:01+0000\n"
+"POT-Creation-Date: 2023-10-03 10:07+0000\n"
+"PO-Revision-Date: 2023-10-03 10:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: survey_event_registration_generation
+#: model_terms:ir.ui.view,arch_db:survey_event_registration_generation.question_event
+#: model_terms:ir.ui.view,arch_db:survey_event_registration_generation.question_event_product
+msgid "<option>Please select...</option>"
+msgstr ""
+
+#. module: survey_event_registration_generation
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_user_input_line__answer_type
 msgid "Answer Type"
 msgstr "Type de réponse"
 
 #. module: survey_event_registration_generation
+#: model:ir.model,name:survey_event_registration_generation.model_event_event
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_user_input_line__value_event
 #: model:ir.model.fields.selection,name:survey_event_registration_generation.selection__survey_question__question_type__event
 #: model:ir.model.fields.selection,name:survey_event_registration_generation.selection__survey_user_input_line__answer_type__event
@@ -31,6 +38,11 @@ msgstr "Événement"
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_question__event_registration_allowed_field_ids
 msgid "Event Registration Allowed Field"
 msgstr "Champs autorisés des inscrptions aux événements"
+
+#. module: survey_event_registration_generation
+#: model:ir.model,name:survey_event_registration_generation.model_event_stage
+msgid "Event Stage"
+msgstr "Étape de session de formation"
 
 #. module: survey_event_registration_generation
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_user_input_line__value_event_product
@@ -86,6 +98,18 @@ msgstr ""
 "correspondants seront proposés"
 
 #. module: survey_event_registration_generation
+#. odoo-javascript
+#: code:addons/survey_event_registration_generation/static/src/js/survey_form.js:0
+#, python-format
+msgid "Please select..."
+msgstr ""
+
+#. module: survey_event_registration_generation
+#: model:ir.model,name:survey_event_registration_generation.model_product_product
+msgid "Product Variant"
+msgstr "Variante de produit"
+
+#. module: survey_event_registration_generation
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_question__question_type
 msgid "Question Type"
 msgstr "Type de question"
@@ -122,3 +146,8 @@ msgstr "Entrée utilisateur du questionnaire"
 #: model:ir.model,name:survey_event_registration_generation.model_survey_user_input_line
 msgid "Survey User Input Line"
 msgstr "Ligne d'entrée pour l'utilisateur du questionnaire"
+
+#. module: survey_event_registration_generation
+#: model:ir.model.fields,field_description:survey_event_registration_generation.field_event_stage__visible_in_survey
+msgid "Visible in surveys"
+msgstr "Visible dans les sondages"
