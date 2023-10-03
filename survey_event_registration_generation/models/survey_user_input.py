@@ -15,7 +15,17 @@ _logger = logging.getLogger(__name__)
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
 
-    registration_id = fields.Many2one('event.registration', 'Event registration')
+    registration_id = fields.Many2one('event.registration', 'Event registration')    
+
+    event_id = fields.Many2one('event.event', 'Événement', compute='compute_event_id', store=True)
+
+    @api.depends('user_input_line_ids')
+    def compute_event_id(self):
+        for user_input in self:
+            for user_input_line in user_input.user_input_line_ids:
+                if user_input_line.answer_type == 'event':
+                    user_input.event_id = user_input_line.value_event
+                    break
 
     def save_lines(self, question, answer, comment=None):
         """
@@ -67,6 +77,8 @@ class SurveyUserInput(models.Model):
         
     def _prepare_registration(self):
         """Extract registration values from the answers"""
+
+        """TODO: simplifier le code"""
         
         elegible_inputs = self.user_input_line_ids.filtered(
             lambda x: x.question_id.event_registration_field and not x.skipped

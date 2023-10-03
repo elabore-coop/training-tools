@@ -9,3 +9,5 @@ class SurveySurvey(models.Model):
     generate_registration = fields.Boolean(
         help="Generate registration for selected event",
     )
+
+    
