@@ -7,7 +7,7 @@ class SurveySurvey(models.Model):
     _inherit = "survey.survey"
 
     generate_registration = fields.Boolean(
-        help="Generate registration for selected event",
+        help="Generate event registration for selected event",
     )
 
     

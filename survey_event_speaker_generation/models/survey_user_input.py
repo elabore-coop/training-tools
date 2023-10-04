@@ -15,9 +15,10 @@ _logger = logging.getLogger(__name__)
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
 
-    speaker_id = fields.Many2one('res.partner', 'Event speaker')
+    speaker_id = fields.Many2one('res.partner', 'Event speaker') #created partner when submit survey
     
     def _get_event(self):
+        """Find event selected, in all answers"""
         for line in self.user_input_line_ids:
             if line.question_id.question_type == 'event' and not line.skipped \
                 and line.answer_type != "suggestion" \
@@ -26,6 +27,7 @@ class SurveyUserInput(models.Model):
                 
 
     def _create_speaker_post_process(self, speaker):
+        """Add message to chatter to note speaker creation and association with event"""
         speaker.message_post_with_view(
             "survey_event_speaker_generation.message_event_speaker_assigned",
             values={"speaker": speaker, "user_input": self, "event":self._get_event()},

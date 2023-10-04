@@ -13,6 +13,7 @@
         </xpath>
     </template>
 
+    <!-- Event product selector -->
     <template id="question_event_product" name="Question: event product">
         <div class="o_survey_comment_container p-0">
             <select class="o_survey_form_choice_item"
@@ -30,6 +31,7 @@
         </div>       
     </template>
 
+    <!-- Event selector -->
     <template id="question_event" name="Question: event">
         <div class="o_survey_comment_container p-0">
             <select class="o_survey_form_choice_item"

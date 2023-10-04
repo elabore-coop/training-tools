@@ -8,4 +8,4 @@ class SurveySurvey(models.Model):
 
     generate_speaker = fields.Boolean(
         help="Generate speaker for selected event",
-    )
+    ) #Field to check if user wants to generate a speaker on survey submit

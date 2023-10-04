@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <!-- Event form -->
     <record model="ir.ui.view" id="view_event_form_event_speaker">
         <field name="name">event.event.form.event.speaker</field>
         <field name="model">event.event</field>        

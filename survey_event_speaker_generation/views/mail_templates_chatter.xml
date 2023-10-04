@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-  
+        <!-- Message notification in res.partner chatter -->
         <template id="message_event_speaker_assigned">
             <div style="margin: 0px; padding: 0px; font-size: 13px;">
                 <a href="#" t-att-data-oe-model="speaker._name" t-att-data-oe-id="speaker.id">

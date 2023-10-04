@@ -15,12 +15,14 @@ _logger = logging.getLogger(__name__)
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
 
-    registration_id = fields.Many2one('event.registration', 'Event registration')    
+    registration_id = fields.Many2one('event.registration', 'Event registration') #registration created automaticaly on survey post
 
-    event_id = fields.Many2one('event.event', 'Événement', compute='compute_event_id', store=True)
+    event_id = fields.Many2one('event.event', 'Événement', compute='compute_event_id', store=True) #related event - answer of "event" question
 
     @api.depends('user_input_line_ids')
     def compute_event_id(self):
+        """set event_id as answer of "event" question
+        """
         for user_input in self:
             for user_input_line in user_input.user_input_line_ids:
                 if user_input_line.answer_type == 'event':
@@ -77,56 +79,23 @@ class SurveyUserInput(models.Model):
         
     def _prepare_registration(self):
         """Extract registration values from the answers"""
-
-        """TODO: simplifier le code"""
         
         elegible_inputs = self.user_input_line_ids.filtered(
             lambda x: x.question_id.event_registration_field and not x.skipped
         )
-        basic_inputs = elegible_inputs.filtered(
-            lambda x: x.answer_type not in {"suggestion"}
-            and x.question_id.event_registration_field.name != "comment"
-        )
 
         vals = {}
-        for line in basic_inputs:
+        for line in elegible_inputs:
             if line.question_id.event_registration_field.ttype == 'many2one':
                 vals[line.question_id.event_registration_field.name] = line[f"value_{line.answer_type}"].id
             else:
                 vals[line.question_id.event_registration_field.name] = line[f"value_{line.answer_type}"]
      
-        for line in elegible_inputs - basic_inputs:
-            field_name = line.question_id.event_registration_field.name
-            if line.question_id.event_registration_field.ttype == "many2one":
-                vals[
-                    field_name
-                ] = line.suggested_answer_id.event_registration_field_resource_ref.id
-            elif line.question_id.event_registration_field.ttype == "many2many":
-                vals.setdefault(field_name, [])
-                vals[field_name] += [
-                    (4, line.suggested_answer_id.event_registration_field_resource_ref.id)
-                ]
-            # We'll use the comment field to add any other infos
-            elif field_name == "comment":
-                vals.setdefault("comment", "")
-                value = (
-                    line.suggested_answer_id.value
-                    if line.answer_type == "suggestion"
-                    else line[f"value_{line.answer_type}"]
-                )
-                vals["comment"] += f"\n{line.question_id.title}: {value}"
-            else:
-                if line.question_id.question_type == "multiple_choice":
-                    if not vals.get(field_name):
-                        vals[field_name] = line.suggested_answer_id.value
-                    else:
-                        vals[field_name] += line.suggested_answer_id.value
-                else:
-                    vals[field_name] = line.suggested_answer_id.value
+        
         return vals
 
     def _create_registration_post_process(self, registration):
-        """After creating the lead send an internal message with the input link"""
+        """After creating the event registration send an internal message with the input link"""
         registration.message_post_with_view(
             "mail.message_origin_link",
             values={"self": registration, "origin": self},
