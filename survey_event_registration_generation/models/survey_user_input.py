@@ -17,7 +17,9 @@ class SurveyUserInput(models.Model):
 
     registration_id = fields.Many2one('event.registration', 'Event registration') #registration created automaticaly on survey post
 
-    event_id = fields.Many2one('event.event', 'Événement', compute='compute_event_id', store=True) #related event - answer of "event" question
+    event_id = fields.Many2one('event.event', 'Event', compute='compute_event_id', store=True) #related event - answer of "event" question
+
+    event_product_id = fields.Many2one('product.product', 'Event product', compute='compute_event_product_id', store=True) #related event product - answer of "event product" question
 
     @api.depends('user_input_line_ids')
     def compute_event_id(self):
@@ -27,6 +29,16 @@ class SurveyUserInput(models.Model):
             for user_input_line in user_input.user_input_line_ids:
                 if user_input_line.answer_type == 'event':
                     user_input.event_id = user_input_line.value_event
+                    break
+
+    @api.depends('user_input_line_ids')
+    def compute_event_product_id(self):
+        """set event_product_id as answer of "event product" question
+        """
+        for user_input in self:
+            for user_input_line in user_input.user_input_line_ids:
+                if user_input_line.answer_type == 'event_product':
+                    user_input.event_product_id = user_input_line.value_event_product
                     break
 
     def save_lines(self, question, answer, comment=None):
