@@ -5,7 +5,7 @@ class SurveyQuestion(models.Model):
     _inherit = 'survey.question'
 
     question_type = fields.Selection(
-        selection_add=[('event_product', 'Event product'),('event', 'Event')]) #event_product : List product used in tickets of visible events
+        selection_add=[('event_product', 'Event product'),('event', 'Event'),('multiple_event_products', 'Multiple event products')]) #event_product : List product used in tickets of visible events
                                                                                #event : List events visible in surveys
                                                                                    
 
@@ -13,7 +13,7 @@ class SurveyQuestion(models.Model):
         'survey.question', string="Event product question", copy=False, compute="_compute_event_product_question_id",
         store=True, readonly=False, help="If you specify question of event product, only events of selected product will be proposed.",
         domain="[('survey_id', '=', survey_id), \
-                 '&', ('question_type', '=', 'event_product'), \
+                 '&', ('question_type', 'in', ['event_product','multiple_event_products']), \
                  '|', \
                      ('sequence', '<', sequence), \
                      '&', ('sequence', '=', sequence), ('id', '<', id)]") #event product question, used by event question, to filter list of events

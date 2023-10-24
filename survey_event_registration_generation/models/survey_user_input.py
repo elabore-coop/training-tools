@@ -53,6 +53,8 @@ class SurveyUserInput(models.Model):
         ])
         if question.question_type == 'event_product':
             self._save_event_product(question, old_answers, answer)
+        elif question.question_type == 'multiple_event_products':
+            self._save_multiple_event_products(question, old_answers, answer)
         elif question.question_type == 'event':
             self._save_event(question, old_answers, answer)
         else:
@@ -68,6 +70,25 @@ class SurveyUserInput(models.Model):
             vals['value_event_product'] = int(vals['value_event_product'])
         else:
             vals['value_event_product'] = 0
+        if old_answers:
+            old_answers.write(vals)
+            return old_answers
+        else:
+            return self.env['survey.user_input.line'].create(vals)
+        
+
+    def _save_multiple_event_products(self, question, old_answers, answer):
+        """
+            Save multiple event products to user_input.line
+        """
+        vals = self._get_line_answer_values(question, answer, question.question_type)
+        if 'value_multiple_event_products' in vals:
+            if isinstance(vals['value_multiple_event_products'], str) and vals['value_multiple_event_products'].isnumeric():
+                vals['value_multiple_event_products'] = [int(vals['value_multiple_event_products'])]
+            elif type(vals['value_multiple_event_products']) == list:
+                vals['value_multiple_event_products'] = [int(product_id) for product_id in vals['value_multiple_event_products']]
+        else:
+            vals['value_multiple_event_products'] = None
         if old_answers:
             old_answers.write(vals)
             return old_answers

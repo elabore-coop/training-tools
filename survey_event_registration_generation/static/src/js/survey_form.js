@@ -18,7 +18,13 @@ SurveyFormWidget.include({
         this.$('[data-question-type]').each(function () {
             if (['event','event_product'].includes($(this).data('questionType'))) {
                 params[this.name] = this.value;
-            }            
+            } else if ($(this).data('questionType') == 'multiple_event_products') {
+                $(this).find('input:checked').each(function () {
+                    if (this.value !== '-1') {
+                        params = self._prepareSubmitAnswer(params, this.name, this.value);
+                    }
+                });
+            }
         });
 
         return result;
