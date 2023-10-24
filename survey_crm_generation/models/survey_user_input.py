@@ -29,11 +29,29 @@ class SurveyUserInput(models.Model):
         relevant_answers = self.user_input_line_ids.filtered(
             lambda x: not x.skipped and x.question_id.show_in_lead_description
         )
+
+        li = ''
+        for answer in relevant_answers:
+            li += '<li>'
+            answer_value = answer[f'value_{answer.answer_type}']
+            #case of value Models
+            if isinstance(answer_value,models.Model):
+                # case of Multi Models
+                if len(answer_value._ids) > 1:
+                    ul2 = f'{answer.question_id.title}: <ul>'
+                    for answer_value_object in answer_value:
+                        ul2 += '<li>'+f"{answer_value_object.display_name}"+'</li>'
+                    ul2 += '</ul>'
+                    li += ul2
+                # case of One Models
+                else:
+                    li += f"{answer.question_id.title}: {answer_value.display_name}"
+            else:
+                # case of string value
+                li += f"{answer.question_id.title}: {answer_value}"                
+            li += '</li>'            
         
-        description = '<u>'+_('Survey answers: ')+"</u><ul><li>"+"</li><li>".join(
-            f"{answer.question_id.title}: {answer[f'value_{answer.answer_type}'].display_name}" if isinstance(answer[f'value_{answer.answer_type}'],models.Model) else f"{answer.question_id.title}: {answer[f'value_{answer.answer_type}']}"
-            for answer in relevant_answers
-        )+"</li></ul>"
+        description = '<u>'+_('Survey answers: ')+"</u><ul>"+li+"</ul>"
         return description
 
     def _create_opportunity_post_process(self):
