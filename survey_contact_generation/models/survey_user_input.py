@@ -61,7 +61,7 @@ class SurveyUserInput(models.Model):
     def _mark_done(self):
         """Generate the contact when the survey is submitted"""
         for user_input in self.filtered(
-            lambda r: r.survey_id.generate_contact and not self.partner_id
+            lambda r: r.survey_id.generate_contact# and not self.partner_id #uncomment to avoid contact generation several times
         ):
             vals = user_input._prepare_partner()
             partner = False
