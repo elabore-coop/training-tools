@@ -4,18 +4,27 @@ from odoo import models, fields, api
 class EventEvent(models.Model):
     _inherit = 'event.event'
 
-    def get_events_visible_in_survey(self, product_id=None):
-        """Search events in stage visible in survey. 
-        Optionnaly filtered by product present in ticket.
+    visible_in_survey = fields.Boolean('Visible in survey', related='stage_id.visible_in_survey', readonly=True, 
+        help="""Events in step configured as 'visible in survey'.""")
+
+
+
+    def get_events_from_event_products(self, product_ids=None, only_visible_in_survey=False):
+        """Search events in stage filtered by product present in ticket..         
 
         Args:
-            product_id (product.product, optional): to filter only events with tickets using this product. Defaults to None.
+            product_ids (list[product.product ids], optional): to filter only events with tickets using product in this list. Defaults to None.
 
         Returns:
             event.event: Events
         """
-        if product_id:
-            event_tickets = self.env['event.event.ticket'].search([('product_id','=',product_id)])
-            return self.env['event.event'].search([('stage_id.visible_in_survey','=',True),('event_ticket_ids','in',event_tickets.id)])
-        return self.env['event.event'].search([('stage_id.visible_in_survey','=',True)])
+        event_search = []
+        if product_ids:
+            event_tickets = self.env['event.event.ticket'].search([('product_id','in',product_ids)])
+            event_search.append(('event_ticket_ids','in',event_tickets.ids))
+
+        if only_visible_in_survey:
+            event_search.append(('visible_in_survey','=',True))
+        
+        return self.env['event.event'].search(event_search)
         

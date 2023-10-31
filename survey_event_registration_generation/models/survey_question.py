@@ -1,3 +1,4 @@
+from email.policy import default
 from odoo import models, fields, api
 
 
@@ -7,6 +8,12 @@ class SurveyQuestion(models.Model):
     question_type = fields.Selection(
         selection_add=[('event_product', 'Event product'),('event', 'Event'),('multiple_event_products', 'Multiple event products')]) #event_product : List product used in tickets of visible events
                                                                                #event : List events visible in surveys
+
+    show_events_and_event_products_only_visible_in_survey = fields.Boolean('Show events or event products in step visible in survey', 
+        help="""In event step configuration, you can check 'Visible in surveys'. 
+        If this option is checked, 
+        If question display events, they are filtered with only events in step 'Visible in survey'. 
+        If question display event products, they are filtered with only products of events in step 'Visible in survey'.""")
                                                                                    
 
     event_product_question_id = fields.Many2one(

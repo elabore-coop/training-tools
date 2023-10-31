@@ -19,7 +19,7 @@ class SurveyUserInput(models.Model):
 
     event_id = fields.Many2one('event.event', 'Event', compute='compute_event_id', store=True) #related event - answer of "event" question
 
-    event_product_id = fields.Many2one('product.product', 'Event product', compute='compute_event_product_id', store=True) #related event product - answer of "event product" question
+    event_products_ids = fields.Many2many('product.product', string='Event products', compute='compute_event_products_ids', store=True) #related event products - answer of "event product" or "multiple event product" question
 
     @api.depends('user_input_line_ids')
     def compute_event_id(self):
@@ -32,13 +32,16 @@ class SurveyUserInput(models.Model):
                     break
 
     @api.depends('user_input_line_ids')
-    def compute_event_product_id(self):
-        """set event_product_id as answer of "event product" question
+    def compute_event_products_ids(self):
+        """set event_products_ids as answer of "event product" or "multiple event products" question
         """
         for user_input in self:
             for user_input_line in user_input.user_input_line_ids:
                 if user_input_line.answer_type == 'event_product':
-                    user_input.event_product_id = user_input_line.value_event_product
+                    user_input.event_products_ids = [user_input_line.value_event_product.id]
+                    break
+                if user_input_line.answer_type == 'multiple_event_products':
+                    user_input.event_products_ids = user_input_line.value_multiple_event_products
                     break
 
     def save_lines(self, question, answer, comment=None):

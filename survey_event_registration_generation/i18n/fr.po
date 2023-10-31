@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 08:53+0000\n"
-"PO-Revision-Date: 2023-10-24 08:53+0000\n"
+"POT-Creation-Date: 2023-10-31 09:56+0000\n"
+"PO-Revision-Date: 2023-10-31 09:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -70,6 +70,12 @@ msgid "Event registration field"
 msgstr "Champ d'inscription à une formation"
 
 #. module: survey_event_registration_generation
+#: model:ir.model.fields,help:survey_event_registration_generation.field_event_event__visible_in_survey
+#: model:ir.model.fields,help:survey_event_registration_generation.field_product_product__visible_in_survey
+msgid "Events in step configured as 'visible in survey'."
+msgstr "Événements dans une étape configurée comme 'visible dans les questionnaires'."
+
+#. module: survey_event_registration_generation
 #: model_terms:ir.ui.view,arch_db:survey_event_registration_generation.survey_form
 msgid "Events registrations"
 msgstr "Inscriptions aux sessions de formation"
@@ -92,6 +98,19 @@ msgid ""
 msgstr ""
 "Si vous indiquez la question du produit de formation, seuls les sessions de "
 "formation correspondantes seront proposés"
+
+#. module: survey_event_registration_generation
+#: model:ir.model.fields,help:survey_event_registration_generation.field_survey_question__show_events_and_event_products_only_visible_in_survey
+msgid ""
+"In event step configuration, you can check 'Visible in surveys'. \n"
+"        If this option is checked, \n"
+"        If question display events, they are filtered with only events in step 'Visible in survey'. \n"
+"        If question display event products, they are filtered with only products of events in step 'Visible in survey'."
+msgstr ""
+"Dans la configuration des étapes d'événement, vous pouvez cocher la case 'Visible dans les questionnaires'. \n"
+"        Si cette option est cochée, \n"
+"        Si la question affiche des événements, ils seront filtrer pour n'afficher que les événements dans une étape 'Visible dans les questionnaires'. \n"
+"        Si la question affiche des produits d'événement, ils seront filtrés pour n'afficher que les produits des événements dans une étape 'Visible dans les questionnaires'."
 
 #. module: survey_event_registration_generation
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_user_input_line__value_multiple_event_products
@@ -126,6 +145,11 @@ msgstr ""
 " les sessions de formation selectionnées"
 
 #. module: survey_event_registration_generation
+#: model:ir.model.fields,field_description:survey_event_registration_generation.field_survey_question__show_events_and_event_products_only_visible_in_survey
+msgid "Show events or event products in step visible in survey"
+msgstr "Montrer les événements ou les produits d'événement 'visibles dans les questionnaires'."
+
+#. module: survey_event_registration_generation
 #: model:ir.model,name:survey_event_registration_generation.model_survey_survey
 msgid "Survey"
 msgstr "Questionnaire"
@@ -144,6 +168,12 @@ msgstr "Entrée utilisateur du questionnaire"
 #: model:ir.model,name:survey_event_registration_generation.model_survey_user_input_line
 msgid "Survey User Input Line"
 msgstr "Ligne d'entrée pour l'utilisateur du questionnaire"
+
+#. module: survey_event_registration_generation
+#: model:ir.model.fields,field_description:survey_event_registration_generation.field_event_event__visible_in_survey
+#: model:ir.model.fields,field_description:survey_event_registration_generation.field_product_product__visible_in_survey
+msgid "Visible in survey"
+msgstr "Visible dans les questionnaires"
 
 #. module: survey_event_registration_generation
 #: model:ir.model.fields,field_description:survey_event_registration_generation.field_event_stage__visible_in_survey
