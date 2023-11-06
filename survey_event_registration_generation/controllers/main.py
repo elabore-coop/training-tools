@@ -18,16 +18,35 @@ class Survey(main.Survey):
         return [{'id':event.id,'name':event.name} for event in events]
 
 
-    def _prepare_survey_data(self, survey_sudo, answer_sudo, **post):
+    def _prepare_survey_data(self, survey_sudo, answer_sudo, **post):        
         result = super(Survey, self)._prepare_survey_data(survey_sudo, answer_sudo, **post)
-        result['event_products'] = request.env['product.product'].sudo().search([('detailed_type','=','event')])
 
-        next_event_question = self._get_next_event_question(answer_sudo)
-        if next_event_question:
-            event_products_ids = None
-            if next_event_question.event_product_question_id:
-                event_products_ids = self._get_answer_event_product(next_event_question.event_product_question_id, answer_sudo).id
-            result['events'] = request.env['event.event'].sudo().get_events_from_event_products(event_products_ids)
+        result['event_products'] = {}
+        result['events'] = {}
+
+        for question in answer_sudo.predefined_question_ids:      
+            if question.question_type == 'event_product':   
+                # set event products answers (by question)          
+                if question.show_events_and_event_products_only_visible_in_survey:
+                    result['event_products'][question.id] = request.env['product.product'].sudo().search([('detailed_type','=','event'),('visible_in_survey','=',True)]) 
+                else:
+                    result['event_products'][question.id] = request.env['product.product'].sudo().search([('detailed_type','=','event')]) 
+
+            if question.question_type == 'event':
+
+                # set events answers (by question)
+                if question.event_answer_filter == 'all':
+                    if question.show_events_and_event_products_only_visible_in_survey:
+                        result['events'][question.id] = request.env['event.event'].sudo().search([('visible_in_survey','=',True)])
+                    else:
+                        result['events'][question.id] = request.env['event.event'].sudo().search([])
+                else:
+                    if question.event_answer_filter ==  'event_product':
+                        event_products_ids = [question.event_filter_event_product_id.id]
+                    elif question.event_answer_filter ==  'event_product_question':
+                        event_products_ids = self._get_answer_event_product(question.event_product_question_id, answer_sudo).id
+                    result['events'][question.id] = request.env['event.event'].sudo().get_events_from_event_products(event_products_ids, 
+                                                                                                                     only_visible_in_survey=question.show_events_and_event_products_only_visible_in_survey)
 
         return result
 
@@ -50,14 +69,3 @@ class Survey(main.Survey):
                 if question.question_type == 'multiple_event_products':
                     return user_input_line.value_multiple_event_products
 
-
-    def _get_next_event_question(self, answer_sudo):
-        future_question = False
-        for question in answer_sudo.predefined_question_ids:            
-            if question == answer_sudo.last_displayed_page_id:
-                future_question = True
-                continue
-            if not future_question:
-                continue
-            if question.question_type == 'event':
-                return question

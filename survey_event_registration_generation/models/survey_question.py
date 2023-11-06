@@ -15,6 +15,11 @@ class SurveyQuestion(models.Model):
         If question display events, they are filtered with only events in step 'Visible in survey'. 
         If question display event products, they are filtered with only products of events in step 'Visible in survey'.""")
                                                                                    
+    event_answer_filter = fields.Selection(
+        [('all','All events'), ('event_product_question','By event product question'), ('event_product', 'By fixed event product')], 
+        string="Filter event answer by.. ", default='all')
+    
+    event_filter_event_product_id = fields.Many2one('product.product', string="Event product", domain="[('detailed_type','=','event')]")
 
     event_product_question_id = fields.Many2one(
         'survey.question', string="Event product question", copy=False, compute="_compute_event_product_question_id",
@@ -73,3 +78,10 @@ class SurveyQuestion(models.Model):
             if not question.question_type == 'event' or question.event_product_question_id is None:
                 question.event_product_question_id = False
     
+
+    @api.onchange('event_answer_filter')
+    def onchange_event_answer_filter(self):
+        if self.event_answer_filter in ('all', 'event_product_question'):
+            self.event_filter_event_product_id = False
+        if self.event_answer_filter in ('all', 'event_product'):
+            self.event_product_question_id = False

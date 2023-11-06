@@ -22,13 +22,11 @@
                 t-att-placeholder="question.question_placeholder" 
                 t-att-data-question-type="question.question_type">
                 <option>Please select...</option>
-                <t t-foreach="event_products" t-as="event_product">
-                    <t t-if="not question.show_events_and_event_products_only_visible_in_survey or (question.show_events_and_event_products_only_visible_in_survey and event_product.visible_in_survey)">
-                        <option 
-                            t-att-value="event_product.id"
-                            t-att-selected="answer_lines and (answer_lines[0].value_event_product.id == event_product.id)">
-                            <t t-esc="event_product.name"/></option>
-                    </t>
+                <t t-foreach="event_products[question.id]" t-as="event_product">                    
+                    <option 
+                        t-att-value="event_product.id"
+                        t-att-selected="answer_lines and (answer_lines[0].value_event_product.id == event_product.id)">
+                        <t t-esc="event_product.name"/></option>                    
                 </t> 
             </select> 
         </div>       
@@ -42,19 +40,19 @@
             <t t-set="item_idx" t-value="0"/>
             <div class="d-flex flex-wrap col-lg-12">
                 <t t-set="has_correct_answer" t-value="scoring_display_correction and any(label.is_correct for label in question.suggested_answer_ids)"/>
-                <t t-foreach="event_products" t-as="event_product">
-                    <t t-if="not question.show_events_and_event_products_only_visible_in_survey or (question.show_events_and_event_products_only_visible_in_survey and event_product.visible_in_survey)">
-                        <label t-att-class="'o_survey_choice_btn form-label me-2 py-1 px-3 rounded %s' % ('o_survey_selected' if answer_line else '')">
-                            
-                            <input type="checkbox" t-att-value='event_product.id' class="o_survey_form_choice_item invisible position-absolute"
-                                t-att-name="question.id" t-att-data-question-type="question.question_type" />
-                            <span class="ms-2 text-break" t-field='event_product.name'/>
+                <t t-foreach="event_products[question.id]" t-as="event_product">
                     
-                            <i class="fa fa-check-circle float-end mt-1 position-relative"></i>
-                            <i class="fa fa-circle-thin float-end mt-1 position-relative"></i>
-                            
-                        </label>
-                    </t>
+                    <label t-att-class="'o_survey_choice_btn form-label me-2 py-1 px-3 rounded %s' % ('o_survey_selected' if answer_line else '')">
+                        
+                        <input type="checkbox" t-att-value='event_product.id' class="o_survey_form_choice_item invisible position-absolute"
+                            t-att-name="question.id" t-att-data-question-type="question.question_type" />
+                        <span class="ms-2 text-break" t-field='event_product.name'/>
+                
+                        <i class="fa fa-check-circle float-end mt-1 position-relative"></i>
+                        <i class="fa fa-circle-thin float-end mt-1 position-relative"></i>
+                        
+                    </label>
+                
                 </t>
             </div>            
         </div>
@@ -67,19 +65,17 @@
         <div class="o_survey_comment_container p-0">
             <select class="o_survey_form_choice_item"
                 t-att-name="question.id" 
-                t-att-data-event-product-question-id="question.event_product_question_id.id"
-                t-att-data-event-product-question-type="question.event_product_question_id.question_type"
+                t-att-data-event-product-question-id="question.event_answer_filter == 'event_product_question' and question.event_product_question_id.id or 0"
+                t-att-data-event-product-question-type="question.event_answer_filter == 'event_product_question' and question.event_product_question_id.question_type or 0"
                 t-att-placeholder="question.question_placeholder" 
                 t-att-data-question-type="question.question_type"
                 t-att-data-only-visible-in-survey="question.show_events_and_event_products_only_visible_in_survey">
                 <option>Please select...</option>
-                <t t-foreach="events" t-as="event">
-                    <t t-if="not question.show_events_and_event_products_only_visible_in_survey or (question.show_events_and_event_products_only_visible_in_survey and event.visible_in_survey)">
-                        <option 
-                            t-att-value="event.id"
-                            t-att-selected="answer_lines and (answer_lines[0].value_event.id == event.id)">
-                            <t t-esc="event.name"/></option>
-                    </t>
+                <t t-foreach="events[question.id]" t-as="event">
+                    <option 
+                        t-att-value="event.id"
+                        t-att-selected="answer_lines and (answer_lines[0].value_event.id == event.id)">
+                        <t t-esc="event.name"/></option>
                 </t> 
             </select> 
         </div>       

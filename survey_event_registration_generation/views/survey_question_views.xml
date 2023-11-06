@@ -18,9 +18,12 @@
                     attrs="{'invisible': [('question_type', 'not in', ['event_product', 'event', 'multiple_event_products'])]}" 
                     />
                 <!-- related event product question, to filter events, in case of event question -->
+                <field name="event_answer_filter" attrs="{'invisible': [('question_type','!=','event')],'required': [('question_type','=','event')]}" />
                 <field name="event_product_question_id" options="{'no_open': True, 'no_create': True}"
-                    attrs="{'invisible': [('question_type','!=','event')],'required': [('question_type','=','event')]}" 
+                    attrs="{'invisible': ['|', ('event_answer_filter','!=','event_product_question'), ('question_type','!=','event')],'required': [('event_answer_filter','=','event_product_question'), ('question_type','=','event')]}" 
                     help="Select the question asking for event product, to filter proposed events." />
+                <field name="event_filter_event_product_id" 
+                    attrs="{'invisible': ['|', ('event_answer_filter','!=','event_product'), ('question_type','!=','event')],'required': [('event_answer_filter','=','event_product'), ('question_type','=','event')]}" />
             </xpath>
 
         </field>
